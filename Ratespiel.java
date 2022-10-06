@@ -6,7 +6,6 @@ public class Ratespiel {
     public static void main(String[] args){
 
         int randomNumber = (int)(Math.random() * 101.0); //[0..100]
-        Scanner sc = new Scanner(System.in); //Scanner Objekt erstellt zum spät
         int counter = 0; //Counter zum zählen der Versuche
 
         //Die Methoden werden solange die Zahl nicht gefunden wurde wieder aufgerufen. Ein Counter zählt die Versuche
@@ -27,7 +26,7 @@ public class Ratespiel {
     public static void pruefeZahl(int guess, int random, int counterS){
         if (guess == random){
             System.out.println("Geschafft! Zufallszahl war " + random);
-            System.out.println("Anzahl an versuchen = " + counterS);
+            System.out.println("Anzahl an Versuchen = " + counterS);
             found = true;
         } else if (guess > random) {
             System.out.println("Zufallszahl ist kleiner!");
