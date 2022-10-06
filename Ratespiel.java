@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Ratespiel {
+    static boolean found = false; //Wurde die Zahle erraten?
+
+    public static void main(String[] args){
+
+        int randomNumber = (int)(Math.random() * 101.0); //[0..100]
+        Scanner sc = new Scanner(System.in); //Scanner Objekt erstellt zum spät
+        int counter = 0; //Counter zum zählen der Versuche
+
+        //Die Methoden werden solange die Zahl nicht gefunden wurde wieder aufgerufen. Ein Counter zählt die Versuche
+        while (!found){
+            counter++;
+            pruefeZahl(rateZahl(),randomNumber, counter);
+        }
+    }
+
+    //Methode die neue Zahl abfragt und einliest
+    public static int rateZahl(){
+        System.out.println("Raten Sie eine Zahl: ");
+        Scanner sc = new Scanner(System.in);
+        return sc.nextInt();
+    }
+
+    //Eingabe des Nutzers wird verglichen mit der Zufallszahl und entsprechende Anweisungen an der Nutzer ausgegeben
+    public static void pruefeZahl(int guess, int random, int counterS){
+        if (guess == random){
+            System.out.println("Geschafft! Zufallszahl war " + random);
+            System.out.println("Anzahl an versuchen = " + counterS);
+            found = true;
+        } else if (guess > random) {
+            System.out.println("Zufallszahl ist kleiner!");
+        } else if (guess < random) {
+            System.out.println("Zufallszahl ist größer!");
+        }
+    }
+}
