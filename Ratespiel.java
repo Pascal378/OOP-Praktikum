@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Ratespiel {
-    static boolean found = false; //Wurde die Zahle erraten?
+    static boolean found = false; //Wurde die Zahl erraten?
 
     public static void main(String[] args){
 
@@ -31,7 +31,7 @@ public class Ratespiel {
         } else if (guess > random) {
             System.out.println("Zufallszahl ist kleiner!");
         } else if (guess < random) {
-            System.out.println("Zufallszahl ist größer!");
+            System.out.println("Zufallszahl ist groeßer!");
         }
     }
 }
