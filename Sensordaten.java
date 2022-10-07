@@ -6,7 +6,7 @@ public class Sensordaten {
         ArrayList<Integer> messwerte = input(); //Messwerte die der Nutzer eingibt
 
 
-        System.out.println(filterMesswerte(messwerte));
+        System.out.println("Ergebnisse nach Filterung: " + filterMesswerte(messwerte)); // Ausgabe der Ergebnisse
 
     }
 
