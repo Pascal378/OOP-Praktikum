@@ -47,6 +47,7 @@ public class Sensordaten {
 
         ArrayList<Integer> werte = new ArrayList<>(messwerteS);
 
+
         int removed = 0; //Hilfsvariable um den korrekten Index zu erfassen
 
         //Alle positiven Werte aus der Liste entfernen
@@ -58,8 +59,23 @@ public class Sensordaten {
             }
         }
 
+        ArrayList<Integer> werteHelper = new ArrayList<>(werte);
 
+        //0-Gruppen bündeln
+        boolean lastFound = false; //Bool der angibt ob wir zuletzt eine 0 gefunden haben
+        removed = 0;
 
+        for(int t = 0; t < werteHelper.size();t++){
+
+            if (werteHelper.get(t) == 0 & lastFound){
+                werte.remove(t-removed);
+                removed++;
+            } else if (werteHelper.get(t) == 0){
+                lastFound = true;
+            } else {
+                lastFound = false;
+            }
+        }
 
         //Beträge Bilden durch Multiplikation von -1 mit allen negativen Integers der Liste
         werte.replaceAll(e -> e * (-1));
