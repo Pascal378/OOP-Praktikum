@@ -12,23 +12,31 @@ public class Wochentag {
         System.out.println("Bitte geben Sie das Jahr an: ");
         int yy = sc.nextInt();
 
+        System.out.println("Wochentag: " + berechneWochentag(dd, mm, yy));
+
     }
 
 
-    public String berechneWochentag(int ddP,int mmP, int yyP){
+    public static String berechneWochentag(int ddP,int mmP, int yyP){
+        int w;
+
+        w = (   ddP +
+                ((26*((mmP+2) + 1))/ (10)) +
+                ((5 * getYear(yyP)) / 4) +
+                ((5*getCentury(yyP)) - 1)
+                );
 
 
-        return "";
+        return String.valueOf(w);
     }
 
-    public int getYear(int yyP){
-
-        return 1;
+    public static int getYear(int yyP){
+        return yyP%100;
     }
 
-    public int getCentury(int yyP){
+    public static int getCentury(int yyP){
 
-        return 1;
+        return yyP/100;
     }
 
 }
