@@ -34,10 +34,8 @@ public class Wochentag {
         printDay(w);
     }
 
-    //Zum Berechnen der Formel werden statt dem genauen Jahr, das Jahrhundert und das jeweilige Jahr innerhalb des Jahrhunderts getrennt von einander benötigt
-    public static int getYear(int yyP){
-        return yyP%100;
-    }
+    //Zum Berechnen der Formel werden statt dem genauen Jahr, das Jahrhundert und das jeweilige Jahr innerhalb des Jahrhunderts getrennt voneinander benötigt
+    public static int getYear(int yyP){return yyP%100;}
 
     public static int getCentury(int yyP){ return yyP/100;}
 
