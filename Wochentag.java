@@ -56,30 +56,14 @@ public class Wochentag {
     public static void printDay(int dayNumber){
 
         switch(dayNumber){
-            case 0:
-                System.out.println("Wochentag: Sonntag");
-                break;
-            case 1:
-                System.out.println("Wochentag: Montag");
-                break;
-            case 2:
-                System.out.println("Wochentag: Dienstag");
-                break;
-            case 3:
-                System.out.println("Wochentag: Mittwoch");
-                break;
-            case 4:
-                System.out.println("Wochentag: Donnerstag");
-                break;
-            case 5:
-                System.out.println("Wochentag: Freitag");
-                break;
-            case 6:
-                System.out.println("Wochentag: Samstag");
-                break;
-            default:
-                System.out.println("Fehler bei der Berechnung aufgetreten. Prüfen Sie Ihre Eingaben.");
-                break;
+            case 0 -> System.out.println("Wochentag: Sonntag");
+            case 1 -> System.out.println("Wochentag: Montag");
+            case 2 -> System.out.println("Wochentag: Dienstag");
+            case 3 -> System.out.println("Wochentag: Mittwoch");
+            case 4 -> System.out.println("Wochentag: Donnerstag");
+            case 5 -> System.out.println("Wochentag: Freitag");
+            case 6 -> System.out.println("Wochentag: Samstag");
+            default -> System.out.println("Fehler bei der Berechnung aufgetreten. Prüfen Sie bitte Ihre Eingaben.");
         }
     }
 }
