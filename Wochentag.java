@@ -12,12 +12,12 @@ public class Wochentag {
         System.out.println("Bitte geben Sie das Jahr an: ");
         int yy = sc.nextInt();
 
-        System.out.println("Wochentag: " + berechneWochentag(dd, mm, yy));
+        berechneWochentag(dd, mm, yy);
 
     }
 
 
-    public static int berechneWochentag(int ddP,int mmP, int yyP){
+    public static void berechneWochentag(int ddP,int mmP, int yyP){
         int w;
 
         w = (   ddP +
@@ -27,7 +27,8 @@ public class Wochentag {
                 ((5*getCentury(yyP)) - 1)
             ) % 7;
 
-        return w;
+
+        printDay(w);
     }
 
     public static int getYear(int yyP){
@@ -48,4 +49,35 @@ public class Wochentag {
         }
     }
 
+
+    public static void printDay(int dayNumber){
+
+        switch(dayNumber){
+            case 0:
+                System.out.println("Wochentag: Sonntag");
+                break;
+            case 1:
+                System.out.println("Wochentag: Montag");
+                break;
+            case 2:
+                System.out.println("Wochentag: Dienstag");
+                break;
+            case 3:
+                System.out.println("Wochentag: Mittwoch");
+                break;
+            case 4:
+                System.out.println("Wochentag: Donnerstag");
+                break;
+            case 5:
+                System.out.println("Wochentag: Freitag");
+                break;
+            case 6:
+                System.out.println("Wochentag: Samstag");
+                break;
+            default:
+                System.out.println("Fehler bei der Berechnung aufgetreten. Prüfen Sie Ihre Eingaben.");
+                break;
+        }
+    }
 }
+
