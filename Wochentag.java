@@ -13,7 +13,7 @@ public class Wochentag {
         System.out.println("Bitte geben Sie das Jahr an: ");
         int yy = sc.nextInt();
 
-        //Übergabe der Eingaben an die Funktion zur Berechnung des Wochentags
+        //Uebergabe der Eingaben an die Funktion zur Berechnung des Wochentags
         berechneWochentag(dd, mm, yy);
 
     }
@@ -34,7 +34,7 @@ public class Wochentag {
         printDay(w);
     }
 
-    //Zum berechnen der Formel werden statt dem genauen Jahr, das Jahrhundert und das jeweilige Jahr innerhalb des Jahrhunderts getrennt von einander benötigt
+    //Zum Berechnen der Formel werden statt dem genauen Jahr, das Jahrhundert und das jeweilige Jahr innerhalb des Jahrhunderts getrennt von einander benötigt
     public static int getYear(int yyP){
         return yyP%100;
     }
