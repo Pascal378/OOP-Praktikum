@@ -17,17 +17,17 @@ public class Wochentag {
     }
 
 
-    public static String berechneWochentag(int ddP,int mmP, int yyP){
+    public static int berechneWochentag(int ddP,int mmP, int yyP){
         int w;
 
         w = (   ddP +
-                ((26*((mmP+2) + 1))/ (10)) +
+                ((26*((getMonth(mmP)) + 1))/ (10)) +
                 ((5 * getYear(yyP)) / 4) +
+                (getCentury(yyP)/4)+
                 ((5*getCentury(yyP)) - 1)
-                );
+            ) % 7;
 
-
-        return String.valueOf(w);
+        return w;
     }
 
     public static int getYear(int yyP){
@@ -37,6 +37,15 @@ public class Wochentag {
     public static int getCentury(int yyP){
 
         return yyP/100;
+    }
+
+    public static int getMonth(int mmP){
+        if(mmP < 3){
+            return mmP+11;
+        }
+        else {
+            return mmP;
+        }
     }
 
 }
