@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class Wochentag {
     public static void main(String[] args){
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); //Scanner zum Erfassen der Eingaben initialisieren
 
+        //Datum abfragen
         System.out.println("Bitte geben Sie den Tag an: ");
         int dd = sc.nextInt();
         System.out.println("Bitte geben Sie den Monat an: ");
@@ -12,11 +13,13 @@ public class Wochentag {
         System.out.println("Bitte geben Sie das Jahr an: ");
         int yy = sc.nextInt();
 
+        //Übergabe der Eingaben an die Funktion zur Berechnung des Wochentags
         berechneWochentag(dd, mm, yy);
 
     }
 
 
+    //Berechnung des Wochentags nach vorgegebener Formel
     public static void berechneWochentag(int ddP,int mmP, int yyP){
         int w;
 
@@ -31,15 +34,14 @@ public class Wochentag {
         printDay(w);
     }
 
+    //Zum berechnen der Formel werden statt dem genauen Jahr, das Jahrhundert und das jeweilige Jahr innerhalb des Jahrhunderts getrennt von einander benötigt
     public static int getYear(int yyP){
         return yyP%100;
     }
 
-    public static int getCentury(int yyP){
+    public static int getCentury(int yyP){ return yyP/100;}
 
-        return yyP/100;
-    }
-
+    //Januar und Februar als 13. und 14. Monat ausgeben
     public static int getMonth(int mmP){
         if(mmP < 3){
             return mmP+11;
@@ -50,6 +52,7 @@ public class Wochentag {
     }
 
 
+    //Funktion zur Ausgabe des Wochentags anhand der vorherigen Berechnungen
     public static void printDay(int dayNumber){
 
         switch(dayNumber){
