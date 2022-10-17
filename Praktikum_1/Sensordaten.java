@@ -3,91 +3,40 @@ package Praktikum_1;
 import java.util.Scanner;
 
 public class Sensordaten {
-    public static void main(String[] args){
+    private static boolean zeroFound = false;
+    private static boolean tripletOnes = false;
+    private static int oneCounter = 0;
 
-        ArrayList<Integer> messwerte = input(); //Messwerte die der Nutzer eingibt
-
-
-        System.out.println("Ergebnisse nach Filterung: " + filterMesswerte(messwerte)); // Ausgabe der Ergebnisse
-
-    }
-
-
-    //Funktion zum Einlesen der Nutzereingaben in eine Liste
-    public static ArrayList<Integer> input (){
-
-        boolean stop = false; //Check ob 3 mal 1 kam
-        int counter = 0; //Zähler für aufeinander folgende Einsen
-
-        ArrayList<Integer> messwerteS = new ArrayList<>(); //Liste in die Nutzereingaben gespeichert werden
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        //Solange keine 3 Einsen aufeinander folgen werden weiter Eingaben vom User angenommen. Bei 3 aufeinander folgenden Einsen wird die Schleife abgebrochen und die gefüllte Liste returned
-        while(!stop){
-            System.out.println("Bitte machen Sie eine Eingabe: ");
-            int eingabe = sc.nextInt();
 
-            if(eingabe == 1){
-                messwerteS.add(eingabe);
-                counter++;
+        while (!tripletOnes) {
+            System.out.println("Messwert angeben: ");
+            checkNumber(sc.nextInt());
+        }
+    }
 
-                if(counter == 3){
-                    stop = true;
+    private static void checkNumber(int number) {
+        if (number > 0) {
+            zeroFound = false;
+            if (number == 1) {
+                oneCounter++;
+                if (oneCounter == 3) {
+                    tripletOnes = true;
                 }
-            } else{
-                counter = 0;
-                messwerteS.add(eingabe);
             }
+        } else if (number == 0) {
+            if (!zeroFound) {
+                System.out.println(number);
+                zeroFound = true;
+            }
+            oneCounter = 0;
+        } else {
+            System.out.println(number * -1);
+            zeroFound = false;
+            oneCounter = 0;
         }
-
-        return messwerteS;
-        
     }
-
-    public static ArrayList<Integer> filterMesswerte (ArrayList<Integer> messwerteS){
-
-        ArrayList<Integer> werte = new ArrayList<>(messwerteS);
-
-
-        int removed = 0; //Hilfsvariable um den korrekten Index zu erfassen
-
-        //Alle positiven Werte aus der Liste entfernen
-        for(int i = 0;i < messwerteS.size();i++){
-
-            if(messwerteS.get(i) > 0){
-                werte.remove(i-removed);
-                removed++;
-            }
-        }
-
-        ArrayList<Integer> werteHelper = new ArrayList<>(werte);
-
-        //0-Gruppen bündeln
-        boolean lastFound = false; //Bool der angibt ob wir zuletzt eine 0 gefunden haben
-        removed = 0;
-
-        for(int t = 0; t < werteHelper.size();t++){
-
-            if (werteHelper.get(t) == 0 & lastFound){
-                werte.remove(t-removed);
-                removed++;
-            } else if (werteHelper.get(t) == 0){
-                lastFound = true;
-            } else {
-                lastFound = false;
-            }
-        }
-
-        //Beträge Bilden durch Multiplikation von -1 mit allen negativen Integers der Liste
-        werte.replaceAll(e -> e * (-1));
-
-        return  werte;
-    }
-
-
-
-
-
-
 }
