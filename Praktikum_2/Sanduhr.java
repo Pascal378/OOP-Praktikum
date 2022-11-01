@@ -2,14 +2,18 @@ package Praktikum_2;
 
 public class Sanduhr {
     public static void main(String[] args) {
-        //Print a hourglass with a desired width
+        //Print an hourglass with a desired width
         printSanduhr(50);
     }
 
     //To print the whole hourglass print the upper half first, then the lower half
     private static void printSanduhr(int width) {
-        upperSanduhr(width);
-        lowerSanduhr(width);
+        if (width < 3) {
+            System.out.println("Eine korrekte Sanduhr kann erst ab einer Breite von 3 dargestellt werden.");
+        } else {
+            upperSanduhr(width);
+            lowerSanduhr(width);
+        }
     }
 
     //Print upper half of the hourglass

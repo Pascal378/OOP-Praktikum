@@ -1,7 +1,8 @@
 package Praktikum_2;
 
 public class Plant extends Entity {
-    private String description = "-";
+
+    private String description;
 
     public String getDescription() {
         return description;
