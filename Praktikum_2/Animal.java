@@ -23,4 +23,12 @@ public class Animal extends Entity {
     public void addFood(Plant food) {
         herbivore = food.getName();
     }
+
+    public String getCarnivore() {
+        return this.carnivore;
+    }
+
+    public String getHerbivore() {
+        return this.herbivore;
+    }
 }

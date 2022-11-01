@@ -2,9 +2,11 @@ package Praktikum_2;
 
 public class Sanduhr {
     public static void main(String[] args) {
-        printSanduhr(20);
+        //Print a hourglass with a desired width
+        printSanduhr(50);
     }
 
+    //To print the whole hourglass print the upper half first, then the lower half
     private static void printSanduhr(int width) {
         upperSanduhr(width);
         lowerSanduhr(width);
@@ -27,7 +29,7 @@ public class Sanduhr {
                 System.out.print("*");
             }
             System.out.print("\n");
-            spaces++; //Need 2 more spaces each line
+            spaces++; //Need one more space each line
             asteriskCounter -= 2; //Need 2 fewer asterisks each line
         }
 
@@ -45,22 +47,22 @@ public class Sanduhr {
             lineCounter--;
         }
 
-        //Set amount of spaces needed later
+        //Set amount of spaces needed
         int spaces = (width - asteriskCounter) / 2;
 
         for (int line = 0; line < lineCounter; line++) {
-
+            //Print spaces before asterisks
             for (int firstSpaces = 0; firstSpaces < spaces; firstSpaces++) {
                 System.out.print(" ");
             }
-
+            //Print asterisks
             for (int asterisk = 0; asterisk < asteriskCounter; asterisk++) {
                 System.out.print("*");
             }
 
             System.out.print("\n");
-            asteriskCounter += 2;
-            spaces -= 1;
+            asteriskCounter += 2; //Need 2 more asterisks each line
+            spaces -= 1; //Need 1 space less each line
         }
     }
 }
