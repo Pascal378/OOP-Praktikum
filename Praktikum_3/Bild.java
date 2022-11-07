@@ -39,6 +39,7 @@ public class Bild {
         return this;
     }
 
+    //Print picture
     void ausgabe() {
         for (int i = 0; i < picture.length; i++) {
             for (int z = 0; z < picture[0].length; z++) {
