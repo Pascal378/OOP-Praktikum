@@ -7,16 +7,24 @@ public class Bild {
         this.picture = picture;
     }
 
-    Bild flipAndInvert() {
+    public Bild flipAndInvert() {
 
         //Flip every 0 to 1 and every 1 to 0
         for (int i = 0; i < picture.length; i++) {
             for (int z = 0; z < picture[0].length; z++) {
-                if (picture[i][z] == 1) {
-                    picture[i][z] = 0;
+
+                //Check if picture is binary, if so then flip bits
+                if (picture[i][z] == 1 || picture[i][z] == 0) {
+                    if (picture[i][z] == 1) {
+                        picture[i][z] = 0;
+                    } else {
+                        picture[i][z] = 1;
+                    }
                 } else {
-                    picture[i][z] = 1;
+                    System.out.println("Das folgende Bild ist nicht binär.");
+                    return this;
                 }
+
             }
         }
 
@@ -39,8 +47,8 @@ public class Bild {
         return this;
     }
 
-    //Print picture
-    void ausgabe() {
+    //Print picture by looping through the array
+    public void ausgabe() {
         for (int i = 0; i < picture.length; i++) {
             for (int z = 0; z < picture[0].length; z++) {
                 System.out.print(picture[i][z]);

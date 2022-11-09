@@ -2,28 +2,40 @@ package Praktikum_3;
 
 public class Vergleich {
 
-    private int[] ArrayOne;
-    private int[] ArrayTwo;
+    private int[] arrayOne;
+    private int[] arrayTwo;
 
     //Check if Arrays are equal
     boolean isEqual(int[] a, int[] b) {
 
         //Store the given Arrays
-        ArrayOne = a;
-        ArrayTwo = b;
+        arrayOne = a;
+        arrayTwo = b;
 
         //Sort the Arrays
-        sort(ArrayOne);
-        sort(ArrayTwo);
+        sort(arrayOne);
+        sort(arrayTwo);
 
         //Check if they are not the same length
-        if (ArrayOne.length != ArrayTwo.length) {
+        if (arrayOne.length != arrayTwo.length) {
             return false;
         }
 
+
+        //Check if both arrays are "null" and return true - they are eqaul
+        if (arrayOne == null && arrayTwo == null) {
+            return true;
+        }
+
+        //Check if only one of the arrays is null and return false - they are not equal
+        if ((arrayOne == null && arrayTwo != null) || (arrayOne != null && arrayTwo == null)) {
+            return false;
+        }
+
+
         //Loop through the sorted Arrays and compare them
-        for (int i = 0; i < ArrayOne.length; i++) {
-            if (ArrayOne[i] != ArrayTwo[i]) {
+        for (int i = 0; i < arrayOne.length; i++) {
+            if (arrayOne[i] != arrayTwo[i]) {
                 return false;
             }
         }
