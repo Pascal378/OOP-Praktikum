@@ -1,11 +1,11 @@
 package Praktikum_4;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Einkaufswagen {
-    private List<String> cart = new ArrayList<>();
+    private ArrayList<String> cart = new ArrayList<>();
 
+    //Add item to cart
     public void addToCart(String item) {
         if (cart.size() < 5) {
             cart.add(item);
@@ -14,10 +14,26 @@ public class Einkaufswagen {
         }
     }
 
+    //Remove item from list if existent
     public void removeFromCart(String item) {
-        cart.remove(item);
+        if (isInCart(item)) {
+            cart.remove(item);
+        }
+
     }
 
+    //Check if item is existent in cart
+    public boolean isInCart(String item) {
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i) == item) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    //Show content of cart
     public void showContent() {
         System.out.println("Ihr Einkaufswagen beinhaltet:");
         for (int i = 0; i < cart.size(); i++) {
@@ -25,6 +41,7 @@ public class Einkaufswagen {
         }
     }
 
+    //Return amount of products that has been put into the cart
     public int size() {
         return cart.size();
     }

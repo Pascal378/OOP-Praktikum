@@ -9,7 +9,7 @@ public class MemoryTest {
         //Print tests
         System.out.println("Test 1:");
         memory.printField(memory.generateField(4));
-
+        
         System.out.println("\n" + "Test 2:");
         memory.printField(memory.generateField(6));
 
