@@ -37,7 +37,7 @@ public class Memory {
 
     //Print field
     public void printField(int[][] field) {
-        if (field == null) {
+        if (field == null || field.length == 0) {
             return;
         }
 
