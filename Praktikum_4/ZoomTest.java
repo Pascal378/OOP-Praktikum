@@ -3,6 +3,13 @@ package Praktikum_4;
 public class ZoomTest {
 
     public static void main(String[] args) {
+
+        testAusgabe();
+
+
+    }
+
+    static void testAusgabe() {
         int[][] testArray1 = {
                 {1, 7, 0},
                 {1, 0, 3},
@@ -30,7 +37,5 @@ public class ZoomTest {
         zoom2.print(zoom1.zoom(2));
         System.out.println("Test 2 - Faktor ist 3:");
         zoom2.print(zoom1.zoom(3));
-
     }
-
 }
