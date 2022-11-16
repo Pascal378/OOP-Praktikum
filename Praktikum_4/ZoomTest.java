@@ -4,12 +4,12 @@ public class ZoomTest {
 
     public static void main(String[] args) {
 
-        testAusgabe();
+        testOutput();
 
 
     }
 
-    static void testAusgabe() {
+    static void testOutput() {
         int[][] testArray1 = {
                 {1, 7, 0},
                 {1, 0, 3},
