@@ -1,5 +1,6 @@
 package Praktikum_4;
 
+
 public class ZoomTest {
 
     public static void main(String[] args) {

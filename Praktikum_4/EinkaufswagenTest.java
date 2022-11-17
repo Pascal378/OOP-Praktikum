@@ -10,6 +10,5 @@ public class EinkaufswagenTest {
         cart.removeFromCart("Salat");
         cart.showContent();
         cart.size();
-
     }
 }

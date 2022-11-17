@@ -7,12 +7,13 @@ public class Memory {
     //Generate field
     int[][] generateField(int n) {
         //Check Parameter
-        if (n % 2 == 1) {
+        if (n % 2 == 1 || n == 0) {
             System.out.println("Ungültiges Spielfeld.");
             return null;
         }
 
-        ArrayList<Integer> pairs = new ArrayList<Integer>(); // Create a list to store pairs
+        // Create a list to store pairs
+        ArrayList<Integer> pairs = new ArrayList<Integer>();
 
         //Generate pairs
         for (int i = 0; i < ((n * n) / 2); i++) {

@@ -59,6 +59,7 @@ public class Zoom {
         return zoomed;
     }
 
+    //Print picture
     public void print(int[][] picture) {
         for (int i = 0; i < picture.length; i++) {
             for (int z = 0; z < picture[0].length; z++) {
@@ -71,7 +72,7 @@ public class Zoom {
     //Check if array is ok
     public boolean check(int[][] picture) {
         //Check if null array
-        if (picture == null || picture.length == 0) {
+        if (picture == null || picture.length == 0 || (picture.length == picture[0].length)) {
             return false;
         }
 
