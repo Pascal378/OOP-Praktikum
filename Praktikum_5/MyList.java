@@ -166,8 +166,9 @@ public class MyList {
                         //Form a string out of the sorted indexes
                         String temp = "" + helper[0] + helper[1] + helper[2];
 
-                        //Needed later to check if the combination is already added
+                        //Check if the combination is already added
                         boolean stringCheck = false;
+
                         //Iterate through the kombi string and check if combination is already in there
                         for (int check = 0; check < kombi.length; check++) {
                             if (temp.equals(kombi[check])) {
