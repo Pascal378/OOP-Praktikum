@@ -1,17 +1,12 @@
 package Praktikum_5;
 
 public class MyList {
-    private int[] array = new int[0];
+    int[] array = new int[0];
 
+    //Remove item at specific index from list
     public void addToList(int index, int item) {
         //Create an array that has space for one more item
         int[] copyArray = new int[array.length + 1];
-
-        //Check if index is correct
-        if (index > array.length || index < 0) {
-            System.out.println("Ungültiger Index");
-            return;
-        }
 
         //Check if list length is zero
         if (array.length == 0) {
@@ -19,6 +14,12 @@ public class MyList {
             this.array = copyArray;
             return;
         }
+        //Check if index is correct
+        if (index > array.length + 1 || index < 0) {
+            System.out.println("Ungueltiger Index");
+            return;
+        }
+
 
         //Copy all the items that come before the index of the item we want to add
         for (int i = 0; i < index; i++) {
@@ -37,14 +38,19 @@ public class MyList {
         this.array = copyArray;
     }
 
-    //Remove item at specific index from list
     public void removeFromList(int index) {
+        int[] copyArray;
         //Create an array that has 1 index less
-        int[] copyArray = new int[array.length - 1];
+        if (array.length > 0) {
+            copyArray = new int[array.length - 1];
+        } else {
+            System.out.println("Ungueltiger Index/Array fuer diese Operation.");
+            return;
+        }
 
         //Check if index is correct
-        if (index > array.length || index < 0) {
-            System.out.println("Ungültiger Index");
+        if (index > array.length - 1 || index < 0) {
+            System.out.println("Ungueltiger Index");
             return;
         }
 
@@ -69,11 +75,10 @@ public class MyList {
 
     //Print the array
     public void print() {
-        System.out.println("Ausgabe: ");
-        for (int j : array) {
-            System.out.print(j + " ");
+        for (int item : array) {
+            System.out.print(item + " ");
         }
-        System.out.print("\n");
+        System.out.println();
     }
 
     //Remove duplicates in array
@@ -173,7 +178,6 @@ public class MyList {
                         for (int check = 0; check < kombi.length; check++) {
                             if (temp.equals(kombi[check])) {
                                 stringCheck = true;
-                                System.out.print("" + temp + "\n");
                             }
                         }
 
@@ -205,7 +209,7 @@ public class MyList {
                     System.out.print(" = " + zahl);
                 }
             }
-            System.out.print("- Indices: " + combination + "\n");
+            System.out.print("\n");
         }
 
     }

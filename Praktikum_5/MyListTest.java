@@ -4,24 +4,35 @@ public class MyListTest {
     public static void main(String[] args) {
         MyList list = new MyList();
 
-        list.addToList(0, 1);
-        list.addToList(1, 1);
-        list.addToList(2, 1);
-        list.addToList(3, 4);
-        list.addToList(4, 5);
+        list.addToList(0, -1);
+        list.addToList(1, 2);
+        list.addToList(2, 4);
+        list.addToList(3, 3);
+        list.addToList(4, 2);
         list.addToList(5, 6);
-        list.addToList(6, 7);
-        list.addToList(7, 8);
-        list.addToList(8, 2);
-        list.addToList(9, 3);
-        list.addToList(10, 1);
-        list.addToList(11, 9);
-        list.addToList(12, 10);
-        list.print();
-        System.out.println(list.removeDuplicates());
-        list.print();
-        list.kombiZahl(8);
+        list.addToList(6, 5);
+        list.addToList(-1, 8);
 
+        System.out.println("Ausgabe der Liste:");
+        list.print();
+
+        System.out.println("Ausgabe nach Loeschen von Element an Index:");
+        list.removeFromList(6);
+        list.print();
+        System.out.println();
+
+        System.out.println("Ausgabe der sortierten Liste:");
+        list.sortList();
+        list.print();
+        System.out.println();
+
+        System.out.println("Ausgabe nach Funktion Kombi-Zahl:");
+        list.kombiZahl(8);
+        System.out.println();
+
+        System.out.println("Entfernte Duplikate: " + list.removeDuplicates());
+        System.out.println("Ausgabe nach removeDuplicates:");
+        list.print();
 
     }
 }
