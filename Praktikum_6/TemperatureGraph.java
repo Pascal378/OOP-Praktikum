@@ -4,6 +4,8 @@ public class TemperatureGraph {
     int year;
     int[] temperatures = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
+
+    //Constructor
     TemperatureGraph(int year) {
         if (year >= 0) {
             this.year = year;
@@ -12,8 +14,10 @@ public class TemperatureGraph {
         }
     }
 
+    //Add temperature of specific month
     void addTemperatur(int monat, int temperatur) {
-        if (monat < 0 && monat > 12) {
+
+        if (monat < 1 && monat > 12) {
             System.out.println("Ungültiger Monat.");
             return;
         }
@@ -25,6 +29,7 @@ public class TemperatureGraph {
         this.temperatures[monat - 1] = temperatur;
     }
 
+    //Print the graph
     void plotGraph() {
         if (!checkTemperatures()) return;
 
@@ -32,8 +37,10 @@ public class TemperatureGraph {
 
         for (int i = getMax(); i >= getMin(); i--) {
 
-            if (i < 10) System.out.print(i + "  ");
-            else System.out.print(i + " ");
+            //Spaces according to digits of temperature
+            if (i >= 100) System.out.print(i + " ");
+            else if (i >= 10) System.out.print(i + "  ");
+            else System.out.print(i + "   ");
 
             for (int temperature : temperatures) {
                 if (temperature >= i) {
@@ -46,6 +53,7 @@ public class TemperatureGraph {
         }
     }
 
+    //Check if temperatures are all above 0 - also checks if temperature is even added since array is initialized with "-1" on every index
     boolean checkTemperatures() {
         for (int temperature : temperatures) {
             if (temperature < 0) return false;
@@ -55,6 +63,7 @@ public class TemperatureGraph {
     }
 
 
+    //Check for min temperature
     public int getMin() {
         int min = temperatures[0];
         for (int temperature : temperatures) {
@@ -64,6 +73,7 @@ public class TemperatureGraph {
         return min;
     }
 
+    //Check for max temperature
     public int getMax() {
         int max = temperatures[0];
         for (int temperature : temperatures) {

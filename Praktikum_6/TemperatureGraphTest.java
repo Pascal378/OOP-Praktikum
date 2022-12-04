@@ -6,7 +6,7 @@ public class TemperatureGraphTest {
 
         graph.addTemperatur(1, 5);
         graph.addTemperatur(2, 9);
-        graph.addTemperatur(3, 10);
+        graph.addTemperatur(3, 16);
         graph.addTemperatur(4, 13);
         graph.addTemperatur(5, 11);
         graph.addTemperatur(6, 20);
