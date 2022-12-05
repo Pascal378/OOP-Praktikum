@@ -5,5 +5,9 @@ public class BildTest {
         Bild picture = new Bild();
 
         picture.leseBild("java.pgm");
+        System.out.println(picture.dataAsString());
+        picture.rotiereBild();
+        picture.rotiereBild();
+        picture.schreibeBild("Praktikum_7/");
     }
 }
