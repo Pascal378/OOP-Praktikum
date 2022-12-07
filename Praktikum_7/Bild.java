@@ -54,9 +54,9 @@ public class Bild {
     public void rotiereBild() {
         int[][] newData = new int[this.data[0].length][this.data.length];
 
-        for (int i = 0; i < newData.length; i++) {
-            for (int j = 0; j < newData[0].length; j++) {
-                newData[i][j] = this.data[j][i];
+        for (int i = 0; i < this.data.length; i++) {
+            for (int j = 1; j < this.data[0].length; j++) {
+                newData[j][i] = this.data[i][this.data[0].length - j];
             }
         }
 
@@ -72,13 +72,11 @@ public class Bild {
         for (int i = 0; i < data.length; i++) {
 
             finished += String.valueOf(data[i][0]);
-            if (data[i][1] > 9) finished += " ";
-            else finished += "  ";
 
             for (int j = 1; j < data[0].length; j++) {
-                finished += String.valueOf(data[i][j]);
                 if (data[i][j] >= 10) finished += " ";
                 else finished += "  ";
+                finished += String.valueOf(data[i][j]);
             }
 
             finished += "\n";
@@ -91,14 +89,11 @@ public class Bild {
         LocalDate date = LocalDate.now();
         Path path = Paths.get(verzeichnis, date + ".pgm");
 
-
         try {
             Files.writeString(path, format + " \n" + String.valueOf(width) + " " + String.valueOf(height) + "\n" + String.valueOf(brightness) + "\n" + dataAsString());
         } catch (IOException e) {
             System.out.println("Print Stack Trace:\r");
             e.printStackTrace();
         }
-
-
     }
 }
