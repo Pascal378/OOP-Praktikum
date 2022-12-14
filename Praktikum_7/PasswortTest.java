@@ -1,5 +1,3 @@
-package Praktikum_7;
-
 public class PasswortTest {
 
     public static void main(String[] args) {

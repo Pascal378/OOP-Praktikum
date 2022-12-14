@@ -1,6 +1,5 @@
 package Praktikum_7;
 
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,11 +16,13 @@ public class Bild {
     int[][] data;
 
 
+    //Read in picture from file
     public void leseBild(String dateiName) {
         Path path = Paths.get(dateiName);
 
         List<String> lines;
 
+        //Check if file is already existent & if so try to read lines from it
         if (Files.exists(path)) {
             System.out.println("Datei vorhanden.");
         } else {
@@ -36,11 +37,13 @@ public class Bild {
             return;
         }
 
+        //Set everything appropriate to the content of the file
         this.format = lines.get(0);
         this.width = Integer.parseInt(lines.get(1).split(" ")[0]);
         this.height = Integer.parseInt(lines.get(1).split(" ")[1]);
         this.brightness = Integer.parseInt(lines.get(2));
 
+        //Collect all data in an integer array
         this.data = new int[this.height][this.width];
 
         for (int i = 0; i < data.length; i++) {
@@ -51,6 +54,7 @@ public class Bild {
         }
     }
 
+    //Rotate the picture
     public void rotiereBild() {
         int[][] newData = new int[this.data[0].length][this.data.length];
 
@@ -66,6 +70,7 @@ public class Bild {
         this.data = newData;
     }
 
+    //Return the data as a String
     public String dataAsString() {
         String finished = "";
 
@@ -85,6 +90,7 @@ public class Bild {
         return finished;
     }
 
+    //Create a PMG File with the picture in it
     public void schreibeBild(String verzeichnis) {
         LocalDate date = LocalDate.now();
         Path path = Paths.get(verzeichnis, date + ".pgm");
