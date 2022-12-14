@@ -13,8 +13,8 @@ public class ArtikelTest {
         cart.addArtikel(java2);
         cart.addArtikel(dvd);
         cart.addArtikel(shirt);
+        cart.removeArtikel(shirt);
 
         cart.zeigeWarenkorb();
-
     }
 }

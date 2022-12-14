@@ -9,10 +9,12 @@ public class Fahrrad {
         this.maxSpeed = maxSpeed;
     }
 
+    //Return current speed depending on weight & maxspeed
     public int speed() {
         if (ladung >= maxSpeed) return 0;
         return (maxSpeed - ladung);
     }
+
 
     public void setLadung(int ladung) {
         this.ladung = ladung;

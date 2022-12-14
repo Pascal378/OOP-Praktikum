@@ -17,15 +17,17 @@ public class Buch extends Artikel {
     }
 
 
+    //Return price incl. tax
     public double getPreis() {
         double netto = super.getPreis();
 
         return (netto + (netto * (this.tax / 100.00)));
     }
 
+    //Return info of product
     public String getInfo() {
         DecimalFormat f = new DecimalFormat("#0.00");
-        return "Buch - " + author + ", " + title + " (" + releaseYear + ") : " + f.format(Math.round((this.getPreis() * 100.0)) / 100.0);
+        return "Buch - " + author + ", " + title + " (" + releaseYear + ") : " + f.format(Math.round((this.getPreis() * 100.0)) / 100.0) + " Euro";
     }
 
 }

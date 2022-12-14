@@ -9,6 +9,7 @@ public class Kleidung extends Artikel {
     final int tax = 12;
 
 
+    //Return price incl. tax
     public double getPreis() {
         double netto = super.getPreis();
 
@@ -22,9 +23,10 @@ public class Kleidung extends Artikel {
         this.color = color;
     }
 
+    //Return info of product
     public String getInfo() {
         DecimalFormat f = new DecimalFormat("#0.00");
-        
-        return "Kleidung - " + this.type + ", " + this.color + " (" + this.size + ") : " + f.format(Math.round((this.getPreis() * 100.0)) / 100.0);
+
+        return "Kleidung - " + this.type + ", " + this.color + " (" + this.size + ") : " + f.format(Math.round((this.getPreis() * 100.0)) / 100.0) + " Euro";
     }
 }
