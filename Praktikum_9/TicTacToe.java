@@ -34,12 +34,23 @@ public class TicTacToe {
     }
 
     public void macheZug(int x, int y) {
-        if (currentPlayer == 1) {
-            field[(3 * y) + x] = 1;
-            currentPlayer--;
-        } else {
-            field[(3 * y) + x] = 2;
-            currentPlayer++;
+        if (x > 2 || x < 0 || y > 2 || y < 0) {
+            System.out.println("Ungueltiger Zug.");
+            return;
         }
+        if (currentPlayer == 1) {
+            if (field[(3 * y) + x] == 0) {
+                field[(3 * y) + x] = 1;
+                currentPlayer--;
+                return;
+            }
+        } else {
+            if (field[(3 * y) + x] == 0) {
+                field[(3 * y) + x] = 2;
+                currentPlayer++;
+                return;
+            }
+        }
+        System.out.println("Ungueltiger Zug.");
     }
 }

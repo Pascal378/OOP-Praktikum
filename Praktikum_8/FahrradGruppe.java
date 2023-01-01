@@ -1,7 +1,7 @@
 package Praktikum_8;
 
 public class FahrradGruppe {
-    Fahrrad startFahrrad = null;
+    private Fahrrad startFahrrad = null;
 
     public void addFahrrad(Fahrrad f) {
         f.setNext(this.startFahrrad);

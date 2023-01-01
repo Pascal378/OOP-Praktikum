@@ -15,7 +15,7 @@ public class MatheAnwendung {
         arithmetik.bestimmeRechenweg(add);
         System.out.println("5.5 + 10.5 = " + arithmetik.berechne(5.5, 10.5));
         arithmetik.bestimmeRechenweg(sub);
-        System.out.print("5.5 - 10.5 = " + arithmetik.berechne(5.5, 10.5));
+        System.out.println("5.5 - 10.5 = " + arithmetik.berechne(5.5, 10.5));
 
         ArithmetikGenerisch arithmetikG = new ArithmetikGenerisch();
         arithmetikG.bestimmeRechenweg(multiply);

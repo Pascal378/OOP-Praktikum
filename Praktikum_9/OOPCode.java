@@ -87,17 +87,10 @@ public class OOPCode {
         OOPCode max = new OOPCode(this.original);
 
         for (int i = 0; i < 4; i++) {
-            System.out.println("BEFORE ROTATE " + (i) + ". TMPCODE:" + tmp.getCode());
-            System.out.println("BEFORE ROTATE " + (i) + ". MAXCODE:" + max.getCode());
             tmp.rotate();
-            System.out.println((i) + ". TMPCODE:" + tmp.getCode());
-            System.out.println((i) + ". MAXCODE:" + max.getCode());
-
             if (tmp.getCode() > max.getCode()) {
                 max.deepcopy(tmp);
             }
-
-
         }
 
         System.out.println("Zahlenbild der Loesung: ");
