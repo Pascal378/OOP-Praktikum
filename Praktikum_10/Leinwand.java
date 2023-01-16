@@ -1,10 +1,7 @@
 package Praktikum_10;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 
 public class Leinwand extends JPanel {
 
@@ -14,6 +11,7 @@ public class Leinwand extends JPanel {
         this.setBackground(Color.black);
     }
 
+    //Draw a tree with random size at random position
     public void growTree(Graphics g) {
         //Random position
         boolean calcHeight = true;
@@ -21,7 +19,7 @@ public class Leinwand extends JPanel {
         int randomX = 0;
         int randomY = 0;
 
-        //Random pize
+        //Random size
         int randomSize = (int) (Math.random() * 30);
 
         while (calcHeight || calcWidth) {
@@ -39,12 +37,13 @@ public class Leinwand extends JPanel {
         }
 
 
-        //Random polors
+        //Random colors
         int randomColor1 = (int) (Math.random() * 256);
         int randomColor2 = (int) (Math.random() * 256);
         int randomColor3 = (int) (Math.random() * 256);
 
 
+        //Tree consists of 3 polygons on top of each other - they get drawn here
         g.setColor(new Color(randomColor1, randomColor2, randomColor3));
         int[] x = {50 + randomX, 85 + randomX + randomSize, 10 + randomX - randomSize};
         int[] y = {10 + randomY - randomSize, 50 + randomY, 50 + randomY};
@@ -61,6 +60,7 @@ public class Leinwand extends JPanel {
         g.fillPolygon(x2, y2, length);
     }
 
+    //Draw stars at random position
     public void stars(Graphics g) {
         int amount = (int) (Math.random() * 1000 + 100);
 
@@ -90,19 +90,5 @@ public class Leinwand extends JPanel {
             calcWidth = true;
             calcHeight = true;
         }
-    }
-
-    public void santa(Graphics g, int speedPlus) {
-        Image image = null;
-        santaX += speedPlus;
-        if (santaX == getWidth()) santaX = 0;
-        try {
-            image = ImageIO.read(new File("image/santa.png")).getScaledInstance(100, 50, 1);
-        } catch (IOException e) {
-            System.out.println("Bild nicht gefunden.");
-        }
-
-        g.drawImage(image, 0, 400, this);
-
     }
 }
